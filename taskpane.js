@@ -1,5 +1,10 @@
+Office.onReady(() => {
+  // Office is ready, functions can now be called
+  console.log("Practice add-in ready");
+});
+
 function insertLogo(event) {
-  // Fixed image (use GitHub Pages logo URL once uploaded)
+  // Fixed image URL (GitHub Pages hosted)
   const imageUrl = "https://newchigrboy.github.io/practice-outlook-addin/logo.png";
 
   // Ask for hyperlink
@@ -13,12 +18,17 @@ function insertLogo(event) {
   Office.context.mailbox.item.body.setSelectedDataAsync(
     `<a href="${hyperlink}" target="_blank"><img src="${imageUrl}" style="max-width:200px;"/></a>`,
     { coercionType: Office.CoercionType.Html },
-    function (asyncResult) {
+    (asyncResult) => {
       if (asyncResult.status === Office.AsyncResultStatus.Failed) {
         console.error("Failed to insert logo: " + asyncResult.error.message);
       }
-      if (event) event.completed();
+      if (event) event.completed(); // important: tell Office the command is done
     }
   );
+}
+
+// Expose function so it's callable by the manifest Action
+if (typeof window !== "undefined") {
+  window.insertLogo = insertLogo;
 }
 
