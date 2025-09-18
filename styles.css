@@ -1,0 +1,47 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #E1D8C8; /* Practice beige */
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 14px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #000;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button {
+  background-color: #E1D8C8; /* beige */
+  border: 1px solid #000;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background-color: #EFFF55; /* rollover yellow */
+}
