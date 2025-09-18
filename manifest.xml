@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
            xsi:type="MailApp">
   <Id>9f6b9a5d-1a3d-42ef-bd89-practice123</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>Practice</ProviderName>
+  <ProviderName>Practice Architecture</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Insert Logo with Link"/>
-  <Description DefaultValue="Insert the Practice image into an email and prompt for a hyperlink."/>
-  <IconUrl DefaultValue="https://newChigrboy.github.io/practice-outlook-addin/icon-32.png"/>
-  <SupportUrl DefaultValue="https://practicela.com"/>
+  <Description DefaultValue="Insert the Practice logo into an email and prompt for a hyperlink."/>
+  <IconUrl DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/icon-32.png"/>
+  <SupportUrl DefaultValue="https://practicearch.com"/>
 
   <Hosts>
     <Host Name="Mailbox"/>
@@ -28,7 +29,7 @@
           <Label resid="InsertLogo.Label"/>
           <Supertip>
             <Title resid="InsertLogo.Label"/>
-            <Description resid="Insert the Practice image and set a hyperlink."/>
+            <Description resid="Insert the Practice logo and set a hyperlink."/>
           </Supertip>
           <Icon>
             <bt:Image size="16" resid="icon16"/>
@@ -56,9 +57,7 @@
       <bt:String id="InsertLogo.Label" DefaultValue="Insert Logo"/>
     </bt:ShortStrings>
     <bt:LongStrings>
-      <bt:String id="InsertLogo.Tooltip" DefaultValue="Insert the Practice image and set a hyperlink."/>
+      <bt:String id="InsertLogo.Tooltip" DefaultValue="Insert the Practice logo and set a hyperlink."/>
     </bt:LongStrings>
   </Resources>
 </OfficeApp>
-
-
