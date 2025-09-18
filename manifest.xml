@@ -52,14 +52,14 @@
                     <bt:Image size="32" resid="icon32"/>
                     <bt:Image size="80" resid="icon80"/>
                   </Icon>
-                  <Action xsi:type="ExecuteFunction">
-                    <FunctionName>insertLogo</FunctionName>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <SourceLocation resid="TaskPane.Url"/>
                   </Action>
                 </Control>
               </Group>
             </OfficeTab>
           </ExtensionPoint>
-          <FunctionFile resid="Functions.Url"/>
         </DesktopFormFactor>
       </Host>
     </Hosts>
@@ -71,7 +71,6 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="TaskPane.Url" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/taskpane.html"/>
-        <bt:Url id="Functions.Url" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/functions.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="InsertLogo.Label" DefaultValue="Insert Logo"/>
