@@ -5,7 +5,6 @@
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
   xsi:type="TaskPaneApp">
-
   <Id>9f6b9a5d-1a3d-42ef-bd89-practice123</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Practice Architecture</ProviderName>
@@ -14,29 +13,39 @@
   <Description DefaultValue="Insert the Practice logo into an email and prompt for a hyperlink."/>
   <IconUrl DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/icon-32.png"/>
   <SupportUrl DefaultValue="https://practicearch.com"/>
-
   <Hosts>
     <Host Name="Mailbox"/>
   </Hosts>
-
   <Requirements>
     <Sets DefaultMinVersion="1.8">
       <Set Name="Mailbox"/>
     </Sets>
   </Requirements>
-
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" Version="1.0">
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/taskpane.html"/>
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>Restricted</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
+  </Rule>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="VersionOverridesV1_0">
     <Hosts>
       <Host xsi:type="MailHost">
         <DesktopFormFactor>
           <ExtensionPoint xsi:type="MessageComposeCommandSurface">
             <OfficeTab id="TabDefault">
-              <Group id="PracticeGroup" label="Practice Tools">
+              <Group id="PracticeGroup">
+                <Label resid="PracticeGroup.Label"/>
                 <Control xsi:type="Button" id="InsertLogoButton">
                   <Label resid="InsertLogo.Label"/>
                   <Supertip>
                     <Title resid="InsertLogo.Label"/>
-                    <Description resid="Insert the Practice logo and set a hyperlink."/>
+                    <Description resid="InsertLogo.Tooltip"/>
                   </Supertip>
                   <Icon>
                     <bt:Image size="16" resid="icon16"/>
@@ -50,10 +59,10 @@
               </Group>
             </OfficeTab>
           </ExtensionPoint>
+          <FunctionFile resid="Functions.Url"/>
         </DesktopFormFactor>
       </Host>
     </Hosts>
-
     <Resources>
       <bt:Images>
         <bt:Image id="icon16" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/icon-16.png"/>
@@ -62,9 +71,11 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="TaskPane.Url" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/taskpane.html"/>
+        <bt:Url id="Functions.Url" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/functions.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="InsertLogo.Label" DefaultValue="Insert Logo"/>
+        <bt:String id="PracticeGroup.Label" DefaultValue="Practice Tools"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="InsertLogo.Tooltip" DefaultValue="Insert the Practice logo and set a hyperlink."/>
