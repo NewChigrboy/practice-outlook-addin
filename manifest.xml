@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
-           xsi:type="MailApp">
+<OfficeApp 
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+  xsi:type="MailApp">
+
   <Id>9f6b9a5d-1a3d-42ef-bd89-practice123</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Practice Architecture</ProviderName>
@@ -22,42 +25,48 @@
     </Sets>
   </Requirements>
 
-  <ExtensionPoint xsi:type="MessageComposeCommandSurface">
-    <OfficeTab id="TabDefault">
-      <Group id="PracticeGroup" label="Practice Tools">
-        <Control xsi:type="Button" id="InsertLogoButton">
-          <Label resid="InsertLogo.Label"/>
-          <Supertip>
-            <Title resid="InsertLogo.Label"/>
-            <Description resid="Insert the Practice logo and set a hyperlink."/>
-          </Supertip>
-          <Icon>
-            <bt:Image size="16" resid="icon16"/>
-            <bt:Image size="32" resid="icon32"/>
-            <bt:Image size="80" resid="icon80"/>
-          </Icon>
-          <Action xsi:type="ExecuteFunction">
-            <FunctionName>insertLogo</FunctionName>
-          </Action>
-        </Control>
-      </Group>
-    </OfficeTab>
-  </ExtensionPoint>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" Version="1.0">
+    <Hosts>
+      <Host xsi:type="MailHost">
+        <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+          <OfficeTab id="TabDefault">
+            <Group id="PracticeGroup" label="Practice Tools">
+              <Control xsi:type="Button" id="InsertLogoButton">
+                <Label resid="InsertLogo.Label"/>
+                <Supertip>
+                  <Title resid="InsertLogo.Label"/>
+                  <Description resid="Insert the Practice logo and set a hyperlink."/>
+                </Supertip>
+                <Icon>
+                  <bt:Image size="16" resid="icon16"/>
+                  <bt:Image size="32" resid="icon32"/>
+                  <bt:Image size="80" resid="icon80"/>
+                </Icon>
+                <Action xsi:type="ExecuteFunction">
+                  <FunctionName>insertLogo</FunctionName>
+                </Action>
+              </Control>
+            </Group>
+          </OfficeTab>
+        </ExtensionPoint>
+      </Host>
+    </Hosts>
 
-  <Resources>
-    <bt:Images>
-      <bt:Image id="icon16" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/icon-16.png"/>
-      <bt:Image id="icon32" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/icon-32.png"/>
-      <bt:Image id="icon80" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/icon-80.png"/>
-    </bt:Images>
-    <bt:Urls>
-      <bt:Url id="TaskPane.Url" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/taskpane.html"/>
-    </bt:Urls>
-    <bt:ShortStrings>
-      <bt:String id="InsertLogo.Label" DefaultValue="Insert Logo"/>
-    </bt:ShortStrings>
-    <bt:LongStrings>
-      <bt:String id="InsertLogo.Tooltip" DefaultValue="Insert the Practice logo and set a hyperlink."/>
-    </bt:LongStrings>
-  </Resources>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="icon16" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/icon-16.png"/>
+        <bt:Image id="icon32" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/icon-32.png"/>
+        <bt:Image id="icon80" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="TaskPane.Url" DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/taskpane.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="InsertLogo.Label" DefaultValue="Insert Logo"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="InsertLogo.Tooltip" DefaultValue="Insert the Practice logo and set a hyperlink."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
 </OfficeApp>
