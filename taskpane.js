@@ -13,7 +13,7 @@ function insertLogo() {
     function (result) {
       if (result.status === Office.AsyncResultStatus.Succeeded) {
         // Prompt user for hyperlink URL
-        const hyperlink = prompt("Enter the URL for the hyperlink (e.g., https://practicearch.com):");
+        const hyperlink = prompt("Enter the URL for the hyperlink (e.g., https://practicela.com):");
         
         if (hyperlink) {
           // Validate URL (basic validation)
@@ -27,7 +27,7 @@ function insertLogo() {
             <div style="margin: 10px 0;">
               <a href="${validatedUrl}" target="_blank" style="text-decoration: none;">
                 <img src="https://newchigrboy.github.io/practice-outlook-addin/logo.png" 
-                     alt="Practice Architecture Logo" 
+                     alt="Practice Logo" 
                      style="max-width: 200px; height: auto; border: none;" />
               </a>
             </div>
@@ -92,3 +92,4 @@ function insertLogoAtCursor() {
     );
   }
 }
+
