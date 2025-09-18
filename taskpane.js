@@ -1,6 +1,6 @@
 function insertLogo(event) {
   // Fixed image (use GitHub Pages logo URL once uploaded)
-  const imageUrl = "https://yourusername.github.io/practice-outlook-addin/logo.png";
+  const imageUrl = "https://newchigrboy.github.io/practice-outlook-addin/logo.png";
 
   // Ask for hyperlink
   const hyperlink = prompt("Enter the hyperlink (e.g., https://www.practicearch.com):");
@@ -21,3 +21,4 @@ function insertLogo(event) {
     }
   );
 }
+
