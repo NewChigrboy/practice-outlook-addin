@@ -12,7 +12,7 @@
   <DisplayName DefaultValue="Insert Logo with Link"/>
   <Description DefaultValue="Insert the Practice logo into an email and prompt for a hyperlink."/>
   <IconUrl DefaultValue="https://newchigrboy.github.io/practice-outlook-addin/icon-32.png"/>
-  <SupportUrl DefaultValue="https://practicearch.com"/>
+  <SupportUrl DefaultValue="https://practicela.com"/>
   <Hosts>
     <Host Name="Mailbox"/>
   </Hosts>
@@ -82,3 +82,4 @@
     </Resources>
   </VersionOverrides>
 </OfficeApp>
+
