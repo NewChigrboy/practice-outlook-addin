@@ -26,7 +26,7 @@ function insertLogo() {
           const logoHtml = `
             <div style="margin: 10px 0;">
               <a href="${validatedUrl}" target="_blank" style="text-decoration: none;">
-                <img src="https://newchigrboy.github.io/practice-outlook-addin/icon-80.png" 
+                <img src="https://newchigrboy.github.io/practice-outlook-addin/logo.png" 
                      alt="Practice Architecture Logo" 
                      style="max-width: 200px; height: auto; border: none;" />
               </a>
@@ -72,7 +72,7 @@ function insertLogoAtCursor() {
     const logoHtml = `
       <div>
         <a href="${validatedUrl}" target="_blank">
-          <img src="https://newchigrboy.github.io/practice-outlook-addin/icon-80.png" 
+          <img src="https://newchigrboy.github.io/practice-outlook-addin/logo.png" 
                alt="Practice Architecture Logo" 
                style="max-width: 200px; height: auto;" />
         </a>
@@ -92,4 +92,3 @@ function insertLogoAtCursor() {
     );
   }
 }
-
