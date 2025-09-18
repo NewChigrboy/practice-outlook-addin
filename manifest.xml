@@ -6,7 +6,6 @@
   xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
   xsi:type="TaskPaneApp">
 
-
   <Id>9f6b9a5d-1a3d-42ef-bd89-practice123</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Practice Architecture</ProviderName>
@@ -73,4 +72,3 @@
     </Resources>
   </VersionOverrides>
 </OfficeApp>
-
