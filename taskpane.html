@@ -4,18 +4,19 @@
   <meta charset="utf-8" />
   <title>Insert Logo</title>
 
-  <!-- Office.js library (required for Outlook add-ins) -->
+  <!-- Office.js is required -->
   <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-
-  <!-- Your add-in logic -->
+  <link rel="stylesheet" href="styles.css">
   <script src="taskpane.js"></script>
 </head>
 <body>
-  <h3>Insert Logo Add-in</h3>
-  <p>This add-in inserts the Practice Email Link Image and prompts for a hyperlink.</p>
-  <button onclick="insertLogo()">Insert Logo</button>
+  <div class="container">
+    <h2>Practice Logo Tool</h2>
+    <p>Paste a URL below and click <strong>Insert Logo</strong>.</p>
+
+    <input type="text" id="linkInput" placeholder="https://www.practicela.com" />
+
+    <button onclick="insertLogoFromInput()">Insert Logo</button>
+  </div>
 </body>
 </html>
-
-
-
