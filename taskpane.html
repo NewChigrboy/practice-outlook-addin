@@ -2,9 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Insert Image Link</title>
+  <title>Insert Link</title>
 
-  <!-- Office.js is required -->
   <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
   <link rel="stylesheet" href="styles.css">
   <script src="taskpane.js"></script>
@@ -15,9 +14,9 @@
     <p>Paste a URL below and click <strong>Insert Link</strong>.</p>
 
     <input type="text" id="linkInput" placeholder="https://www.practicela.com" />
+    <div id="validationMessage"></div>
 
     <button onclick="insertLogoFromInput()">Insert Link</button>
   </div>
 </body>
 </html>
-
