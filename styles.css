@@ -45,3 +45,15 @@ button {
 button:hover {
   background-color: #EFFF55; /* rollover yellow */
 }
+#validationMessage {
+  font-size: 13px;
+  margin: 5px 0 10px 0;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
