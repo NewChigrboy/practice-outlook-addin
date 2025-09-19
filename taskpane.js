@@ -78,49 +78,49 @@ window.insertLogoFromInput = function(event) {
 
 window.insertLogoFromClipboard = async function(event) {
   const messageEl = document.getElementById("validationMessage");
+  let hyperlink = "";
 
   try {
-    const text = await navigator.clipboard.readText();
-    let hyperlink = text.trim();
-
-    if (!hyperlink) {
-      alert("Clipboard is empty. Please copy a link first.");
-      if (event) event.completed && event.completed();
-      return;
-    }
-
-    // Auto-prepend https:// if missing
-    if (!/^https?:\/\//i.test(hyperlink)) {
-      hyperlink = "https://" + hyperlink;
-    }
-
-    if (!urlPattern.test(hyperlink)) {
-      alert("Clipboard does not contain a valid URL.");
-      if (event) event.completed && event.completed();
-      return;
-    }
-
-    const imageUrl = "https://newchigrboy.github.io/practice-outlook-addin/logo.png";
-
-    Office.context.mailbox.item.body.setSelectedDataAsync(
-      `<a href="${hyperlink}" target="_blank"><img src="${imageUrl}" style="max-width:200px;"/></a>`,
-      { coercionType: Office.CoercionType.Html },
-      (asyncResult) => {
-        if (asyncResult.status === Office.AsyncResultStatus.Failed) {
-          console.error("Failed to insert logo: " + asyncResult.error.message);
-          alert("Something went wrong inserting the logo.");
-        } else {
-          console.log("Logo inserted successfully from clipboard: " + hyperlink);
-          messageEl.textContent = "✔ Inserted successfully from clipboard!";
-          messageEl.className = "valid";
-        }
-        if (event) event.completed && event.completed();
-      }
-    );
+    hyperlink = (await navigator.clipboard.readText()).trim();
   } catch (err) {
-    console.error("Clipboard error:", err);
-    alert("Could not read clipboard. Please copy a link first.");
-    if (event) event.completed && event.completed();
+    console.warn("Clipboard API not available, falling back:", err);
+    // Fallback: prompt user
+    hyperlink = prompt("Clipboard access is not supported here. Please paste your link:");
+    if (!hyperlink) {
+      if (event) event.completed && event.completed();
+      return;
+    }
   }
+
+  // Auto-prepend https:// if missing
+  if (!/^https?:\/\//i.test(hyperlink)) {
+    hyperlink = "https://" + hyperlink;
+  }
+
+  // Validate
+  if (!urlPattern.test(hyperlink)) {
+    alert("Invalid URL. Please copy or paste a proper link.");
+    if (event) event.completed && event.completed();
+    return;
+  }
+
+  const imageUrl = "https://newchigrboy.github.io/practice-outlook-addin/logo.png";
+
+  Office.context.mailbox.item.body.setSelectedDataAsync(
+    `<a href="${hyperlink}" target="_blank"><img src="${imageUrl}" style="max-width:200px;"/></a>`,
+    { coercionType: Office.CoercionType.Html },
+    (asyncResult) => {
+      if (asyncResult.status === Office.AsyncResultStatus.Failed) {
+        console.error("Failed to insert logo: " + asyncResult.error.message);
+        alert("Something went wrong inserting the logo.");
+      } else {
+        console.log("Logo inserted successfully from clipboard: " + hyperlink);
+        messageEl.textContent = "✔ Inserted successfully from clipboard!";
+        messageEl.className = "valid";
+      }
+      if (event) event.completed && event.completed();
+    }
+  );
 };
+
 
