@@ -1,20 +1,57 @@
 Office.onReady(() => {
   console.log("Practice add-in ready");
+
+  // Attach input listener for live validation
+  const input = document.getElementById("linkInput");
+  if (input) {
+    input.addEventListener("input", validateUrlLive);
+  }
 });
+
+// Regex for validation
+const urlPattern = /^(https?:\/\/)[\w.-]+(\.[a-z]{2,})(:[0-9]{1,5})?(\/.*)?$/i;
+
+function validateUrlLive() {
+  let val = document.getElementById("linkInput").value.trim();
+  const messageEl = document.getElementById("validationMessage");
+
+  if (!val) {
+    messageEl.textContent = "";
+    return;
+  }
+
+  // Auto-prepend https:// for preview
+  if (!/^https?:\/\//i.test(val)) {
+    val = "https://" + val;
+  }
+
+  if (urlPattern.test(val)) {
+    messageEl.textContent = "✔ Valid URL";
+    messageEl.className = "valid";
+  } else {
+    messageEl.textContent = "✖ Invalid URL (must start with http:// or https://)";
+    messageEl.className = "invalid";
+  }
+}
 
 window.insertLogoFromInput = function(event) {
   let hyperlink = document.getElementById("linkInput").value.trim();
+  const messageEl = document.getElementById("validationMessage");
+
+  if (!hyperlink) {
+    alert("Please enter a URL first.");
+    if (event) event.completed && event.completed();
+    return;
+  }
 
   // Auto-prepend https:// if missing
-  if (hyperlink && !/^https?:\/\//i.test(hyperlink)) {
+  if (!/^https?:\/\//i.test(hyperlink)) {
     hyperlink = "https://" + hyperlink;
   }
 
-  // Basic URL validation
-  const urlPattern = /^(https?:\/\/)[\w.-]+(\.[a-z]{2,})(:[0-9]{1,5})?(\/.*)?$/i;
-
+  // Validate again before inserting
   if (!urlPattern.test(hyperlink)) {
-    alert("Please enter a valid URL (example: https://practicearch.com)");
+    alert("Invalid URL. Please correct it before inserting.");
     if (event) event.completed && event.completed();
     return;
   }
@@ -30,8 +67,12 @@ window.insertLogoFromInput = function(event) {
         alert("Something went wrong inserting the logo.");
       } else {
         console.log("Logo inserted successfully: " + hyperlink);
+        messageEl.textContent = "✔ Inserted successfully!";
+        messageEl.className = "valid";
       }
       if (event) event.completed && event.completed();
     }
   );
 };
+
+
