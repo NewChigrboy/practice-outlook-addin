@@ -5,10 +5,8 @@
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides" 
            xsi:type="MailApp">
 
-  <!-- Use a valid GUID only -->
   <Id>9f6b9a5d-1a3d-42ef-bd89-123456789abc</Id>
-
-  <Version>1.0.0.2</Version>
+  <Version>1.0.0.3</Version> <!-- bumped version -->
   <ProviderName>Practice</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Insert Link"/>
@@ -30,7 +28,6 @@
       <Set Name="Mailbox" MinVersion="1.8"/>
     </Sets>
   </Requirements>
-
 
   <FormSettings>
     <Form xsi:type="ItemRead">
@@ -55,15 +52,16 @@
       </bt:Sets>
     </Requirements>
 
-
     <Hosts>
       <Host xsi:type="MailHost">
         <DesktopFormFactor>
+
+          <!-- READ SURFACE -->
           <ExtensionPoint xsi:type="MessageReadCommandSurface">
             <OfficeTab id="TabDefault">
-              <Group id="msgReadGroup">
+              <Group id="PracticeToolsReadGroup">
                 <Label resid="GroupLabel"/>
-                <Control xsi:type="Button" id="msgReadOpenPaneButton">
+                <Control xsi:type="Button" id="InsertLogoReadButton">
                   <Label resid="TaskpaneButton.Label"/>
                   <Supertip>
                     <Title resid="TaskpaneButton.Label"/>
@@ -75,7 +73,6 @@
                     <bt:Image size="80" resid="Icon.80x80"/>
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
-                    <!-- FIX: Only SourceLocation is allowed -->
                     <SourceLocation resid="Taskpane.Url"/>
                   </Action>
                 </Control>
@@ -83,11 +80,12 @@
             </OfficeTab>
           </ExtensionPoint>
 
+          <!-- COMPOSE SURFACE -->
           <ExtensionPoint xsi:type="MessageComposeCommandSurface">
             <OfficeTab id="TabDefault">
-              <Group id="msgComposeGroup">
+              <Group id="PracticeToolsComposeGroup">
                 <Label resid="GroupLabel"/>
-                <Control xsi:type="Button" id="msgComposeOpenPaneButton">
+                <Control xsi:type="Button" id="InsertLogoComposeButton">
                   <Label resid="TaskpaneButton.Label"/>
                   <Supertip>
                     <Title resid="TaskpaneButton.Label"/>
@@ -99,13 +97,13 @@
                     <bt:Image size="80" resid="Icon.80x80"/>
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
-                    <!-- FIX: Only SourceLocation is allowed -->
                     <SourceLocation resid="Taskpane.Url"/>
                   </Action>
                 </Control>
               </Group>
             </OfficeTab>
           </ExtensionPoint>
+
         </DesktopFormFactor>
       </Host>
     </Hosts>
@@ -121,7 +119,7 @@
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Practice Tools"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Insert Link with Image"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Insert Logo with Image"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Insert the Practice Email link logo and set a hyperlink."/>
