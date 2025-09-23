@@ -5,8 +5,8 @@
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides" 
            xsi:type="MailApp">
 
-  <Id>9f6b9a5d-1a3d-42ef-bd89-123456789abc</Id>
-  <Version>1.0.0.3</Version> <!-- bumped version -->
+  <Id>bf9ccd41-e3b7-426c-9681-3d4fd991633b</Id>
+  <Version>1.0.0.5</Version> <!-- bumped version -->
   <ProviderName>Practice</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Insert Link"/>
@@ -127,3 +127,4 @@
     </Resources>
   </VersionOverrides>
 </OfficeApp>
+
